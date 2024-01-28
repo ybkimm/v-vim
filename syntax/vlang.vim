@@ -87,11 +87,11 @@ syn match       vCodeGen            /$if\>/
 hi def link     vCodeGen            Identifier
 
 " Predefined types
-syn keyword     vType               any chan char map bool string error voidptr
-syn match       vOptionalType       "\%(\<?\)\@<=\(chan\|map\|bool\|string\|error\|voidptr\)"
-syn keyword     vSignedInts         int i8 i16 i64 isize rune intptr
-syn keyword     vUnsignedInts       byte u16 u32 u64 usize byteptr
-syn keyword     vFloats             f32 f64 floatptr
+syn keyword     vType               any chan map bool string rune error voidptr
+syn match       vOptionalType       "\%(\<?\)\@<=\(chan\|map\|bool\|string\|rune\|error\|voidptr\)"
+syn keyword     vSignedInts         i8 i16 int i64 i128 isize
+syn keyword     vUnsignedInts       u8 u16 u32 u64 u128 usize
+syn keyword     vFloats             f32 f64
 " XXX Enable when complex numbers are implemented in V
 " syn keyword    	vComplexes          complex64 complex128
 
@@ -109,12 +109,13 @@ syn match       vDeclaration        /\<fn\>/
 syn match       vDeclaration        contained /\<fn\>/
 
 " Predefined functions and values
-syn keyword     vBuiltins           assert C
-syn keyword     vBuiltins           complex exit imag
-syn keyword     vBuiltins           print println eprint eprintln
-syn keyword     vBuiltins           malloc copy memdup  isnil
-syn keyword     vBuiltins           panic recover
-syn match       vBuiltins           /\<json\.\(encode\|decode\)\>/
+"syn keyword     vBuiltins           assert C
+"syn keyword     vBuiltins           complex exit imag
+"syn keyword     vBuiltins           print println eprint eprintln
+"syn keyword     vBuiltins           malloc copy memdup  isnil
+"syn keyword     vBuiltins           panic recover
+"syn match       vBuiltins           /\<json\.\(encode\|decode\)\>/
+syn keyword     vBuiltins           print println eprint eprintln exit panic print_backtrace
 hi def link     vBuiltins           Keyword
 
 syn keyword     vConstants          true false
